@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $ds_chi_tiet = $result['ds_chi_tiet'];
         $ds_thong_ke = $result['ds_thong_ke'];
         $tin_moi = $result['tin'];
-        $diem_tang = $result['result_diem_tang'];
+        
 
         // Define a callback function for array_reduce
         $grouped_by_so = array_reduce($ds_chi_tiet, function ($result, $item) {
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $thong_bao = "Lưu thành công!";
                 $luu_thanh_cong = true;
 
-                $response = array("data" => $ds_thong_ke,'ds_chi_tiet'=>$grouped_by_so, "diem_tang" => $diem_tang, "message" => "success", 'status' => 200 );
+                $response = array("data" => $ds_thong_ke,'ds_chi_tiet'=>$grouped_by_so,  "message" => "success", 'status' => 200 );
 
                 echo json_encode($response);
 
