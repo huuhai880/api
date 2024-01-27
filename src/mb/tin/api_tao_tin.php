@@ -85,6 +85,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($action === 'luu') {
             
             $kq_ghi = tin::GhiTinVaChiTiet($tin_moi, $ds_chi_tiet, $vung_mien, $message_id);
+
+            var_dump($kq_ghi);
+
             //Ghi Tin và các chi tiết xuống csdl
             if ($kq_ghi) {
                 $thong_bao = "Lưu thành công!";
