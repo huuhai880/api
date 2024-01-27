@@ -83,10 +83,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }, []);
 
         if ($action === 'luu') {
+
+            var_dump($ds_chi_tiet);
+
+            var_dump($tin_moi);
             
             $kq_ghi = tin::GhiTinVaChiTiet($tin_moi, $ds_chi_tiet, $vung_mien, $message_id);
 
-            var_dump($kq_ghi);
+           
 
             //Ghi Tin và các chi tiết xuống csdl
             if ($kq_ghi) {
