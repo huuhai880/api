@@ -940,7 +940,7 @@ class tin
             //echo "sql1: " . $sql . "</br>";
             //echo $sql . "<br/>";
 
-            var_dump($conn->get_query_result($sql));
+            var_dump($sql);
 
             if ($conn->get_query_result($sql)) {
                 $id_tin = $conn->get_insert_id(); //Lấy id tin vừa ghi vào csdl
