@@ -33,6 +33,7 @@ if ($_POST["action"] === "luu_kq") {
 
     $ma_tin = $_POST["ma_tin"];
     $ket_qua = $_POST['ket_qua'];
+    $openTime = $_POST['openTime'];
 
     $ket_qua = str_replace("'",'"', $ket_qua);
     
@@ -46,7 +47,7 @@ if ($_POST["action"] === "luu_kq") {
         exit();
     }
 
-    $sql_select = "INSERT INTO `ket_qua_trung` (`ma_phien`,`ket_qua`) VALUES ('$ma_tin','$ket_qua')";
+    $sql_select = "INSERT INTO `ket_qua_trung` (`ma_phien`,`ket_qua`,`openTime`) VALUES ('$ma_tin','$ket_qua','$openTime')";
 
     var_dump($sql_select);
 
