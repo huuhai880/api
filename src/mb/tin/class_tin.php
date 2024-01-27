@@ -286,8 +286,6 @@ class tin
 
                     #kiểm tra xem kiểu có điểm thay đổi trong ngày hay không
                     
-                    
-
                     $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem; //Xác
 
                     if ($chi_tiet_tin->kieu === 'dau')
@@ -343,9 +341,6 @@ class tin
                     $chi_tiet_cau_hinh = $cau_hinh->lay_chi_tiet_bao_lo($vung_mien, $con); //Lấy chi tiết cấu hình theo số con
                     $co = $chi_tiet_cau_hinh->co; //cò
                     $trung = $chi_tiet_cau_hinh->trung; //trúng
-
-                    
-
 
                     $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co * 10; //Tiền
                     $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
@@ -626,7 +621,7 @@ class tin
                         //Cập nhật trúng trật
                         if ($tien_trung > 0) {
                             $thong_ke['2c-dd']->tien_trung += $tien_trung;
-                            $thong_ke['2c-dd']->so_trung .= $so_trung . '</br>';
+                            $thong_ke['2c-dd']->so_trung .= $so_trung . '';
                             $thong_ke['2c-dd']->diem_trung += $chi_tiet_tin->diem;
                         }
                     }
@@ -671,7 +666,7 @@ class tin
                         //Cập nhật trúng trật
                         if ($tien_trung) {
                             $thong_ke['3c-dd']->tien_trung += $tien_trung;
-                            $thong_ke['3c-dd']->so_trung .= $so_trung . '</br>';
+                            $thong_ke['3c-dd']->so_trung .= $so_trung . '';
                             $thong_ke['3c-dd']->diem_trung += $chi_tiet_tin->diem;
                         }
 
@@ -716,7 +711,7 @@ class tin
                             $thong_ke['2c-bl']->thuc_thu += $chi_tiet_tin->thuc_thu;
                             if ($tien_trung > 0) {
                                 $thong_ke['2c-bl']->tien_trung += $tien_trung;
-                                $thong_ke['2c-bl']->so_trung .= $so_trung . '</br>';
+                                $thong_ke['2c-bl']->so_trung .= $so_trung . '';
                                 $thong_ke['2c-bl']->diem_trung += $chi_tiet_tin->diem;
                             }
                         }
@@ -725,7 +720,7 @@ class tin
                             $thong_ke['3c-bl']->thuc_thu += $chi_tiet_tin->thuc_thu;
                             if ($tien_trung > 0) {
                                 $thong_ke['3c-bl']->tien_trung += $tien_trung;
-                                $thong_ke['3c-bl']->so_trung .= $so_trung . '</br>';
+                                $thong_ke['3c-bl']->so_trung .= $so_trung . '';
                                 $thong_ke['3c-bl']->diem_trung += $chi_tiet_tin->diem;
                             }
                         }
@@ -734,7 +729,7 @@ class tin
                             $thong_ke['4c-bl']->thuc_thu += $chi_tiet_tin->thuc_thu;
                             if ($tien_trung > 0) {
                                 $thong_ke['4c-bl']->tien_trung += $tien_trung;
-                                $thong_ke['4c-bl']->so_trung .= $so_trung . '</br>';
+                                $thong_ke['4c-bl']->so_trung .= $so_trung . '';
                                 $thong_ke['4c-bl']->diem_trung += $chi_tiet_tin->diem;
                             }
                         }
@@ -776,7 +771,7 @@ class tin
                             $thong_ke['2c-baylo']->thuc_thu += $chi_tiet_tin->thuc_thu;
                             if ($tien_trung > 0) {
                                 $thong_ke['2c-baylo']->tien_trung += $tien_trung;
-                                $thong_ke['2c-baylo']->so_trung .= $so_trung . '</br>';
+                                $thong_ke['2c-baylo']->so_trung .= $so_trung . '';
                                 $thong_ke['2c-baylo']->diem_trung += $chi_tiet_tin->diem;
                             }
                         }
@@ -786,7 +781,7 @@ class tin
 
                             if ($tien_trung > 0) {
                                 $thong_ke['3c-baylo']->tien_trung += $tien_trung;
-                                $thong_ke['3c-baylo']->so_trung .= $so_trung . '</br>';
+                                $thong_ke['3c-baylo']->so_trung .= $so_trung . '';
                                 $thong_ke['3c-baylo']->diem_trung += $chi_tiet_tin->diem;
                             }
                         }
@@ -826,7 +821,7 @@ class tin
                         $thong_ke['dat']->thuc_thu += $chi_tiet_tin->thuc_thu;
                         if ($tien_trung > 0) {
                             $thong_ke['dat']->tien_trung += $tien_trung;
-                            $thong_ke['dat']->so_trung .= $so_trung . '</br>';
+                            $thong_ke['dat']->so_trung .= $so_trung . '';
                             $thong_ke['dat']->diem_trung += $chi_tiet_tin->diem;
                         }
 
@@ -861,7 +856,7 @@ class tin
                         $thong_ke['dax']->thuc_thu += $chi_tiet_tin->thuc_thu;
                         if ($tien_trung > 0) {
                             $thong_ke['dax']->tien_trung += $tien_trung;
-                            $thong_ke['dax']->so_trung .= $so_trung . '</br>';
+                            $thong_ke['dax']->so_trung .= $so_trung . '';
                             $thong_ke['dax']->diem_trung += $chi_tiet_tin->diem;
                         }
                     }
@@ -927,7 +922,7 @@ class tin
                 so_trung = '$tin->so_trung',
                 trang_thai = $tin->trang_thai
             WHERE id = '$tin->id' ";
-            //echo "sql1: " . $sql . "</br>";
+            //echo "sql1: " . $sql . "";
             //echo $sql . "<br/>";
             if ($conn->get_query_result($sql)) {
                 $id_tin = $conn->get_insert_id(); //Lấy id tin vừa ghi vào csdl
@@ -943,7 +938,7 @@ class tin
                         tien_trung = '$chi_tiet->tien_trung',
                         so_trung = '$chi_tiet->so_trung'
                     WHERE id = '$chi_tiet->id' ";
-                    //echo "sql2: " . $sql2 . "</br>";
+                    //echo "sql2: " . $sql2 . "";
                     $conn->get_query_result($sql2);
                 }
                 return $sql;
@@ -963,7 +958,7 @@ class tin
         hai_c, ba_c, bon_c, da_daxien, xac, thuc_thu, tien_trung, so_trung, trang_thai, vung_mien, message_id)
         VALUES ('$tin->ma_tin','$tin->tai_khoan_tao','$tin->tai_khoan_danh', '$tin->thoi_gian_tao', '$tin->thoi_gian_danh', '$tin->noi_dung','$tin->ghi_chu',
         $tin->hai_c,$tin->ba_c, $tin->bon_c, $tin->da_daxien, $tin->xac, $tin->thuc_thu, $tin->tien_trung, '$tin->so_trung', $tin->trang_thai,'$vung_mien', '$message_id' )";
-            //echo "sql1: " . $sql . "</br>";
+            //echo "sql1: " . $sql . "";
             //echo $sql . "<br/>";
 
             if ($conn->get_query_result($sql)) {
@@ -973,7 +968,7 @@ class tin
                                     hai_c, ba_c, bon_c, da_daxien, xac, thuc_thu, tien_trung, so_trung )
                             VALUES ($id_tin,'$chi_tiet->dai', '$chi_tiet->so', '$chi_tiet->kieu',$chi_tiet->diem, $chi_tiet->tien,'$chi_tiet->ghi_chu',
                                         $chi_tiet->hai_c,$chi_tiet->ba_c, $chi_tiet->bon_c, $chi_tiet->da_daxien, $chi_tiet->xac, $chi_tiet->thuc_thu, $chi_tiet->tien_trung, '$chi_tiet->so_trung')";
-                    //echo "sql2: " . $sql2 . "</br>";
+                    //echo "sql2: " . $sql2 . "";
                     $conn->get_query_result($sql2);
                 }
                 return $sql;
