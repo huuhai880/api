@@ -85,6 +85,8 @@ if ($_POST["action"] === "lay_kq") {
 
     if ($limit_number = $sql_connector->get_query_result($sql_lay_ket_qua)) {
 
+        var_dump($row = $limit_number->fetch_assoc());
+
         while ($row = $limit_number->fetch_assoc()) {
             
             $ket_qua = $row;
