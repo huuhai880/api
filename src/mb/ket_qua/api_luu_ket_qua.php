@@ -81,13 +81,13 @@ if ($_POST["action"] === "lay_kq") {
 
     $sql_lay_ket_qua = "SELECT * FROM `ket_qua_trung` ORDER BY `id` DESC LIMIT 1;";
 
-    $ket_qua = [];
+    $ket_qua_trung = [];
 
     if ($limit_number = $sql_connector->get_query_result($sql_lay_ket_qua)) {
 
         while ($row = $limit_number->fetch_assoc()) {
             
-            $ket_qua[] = $row;
+            $ket_qua_trung[] = $row;
         }
     }
     else{
