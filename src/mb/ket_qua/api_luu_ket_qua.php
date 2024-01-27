@@ -88,15 +88,17 @@ if ($_POST["action"] === "lay_kq") {
         while ($row = $limit_number->fetch_assoc()) {
             
             $ket_qua_trung[] = $row;
-            var_dump($row);
+            
         }
+
+        
     }
     else{
 
         $response['success'] = 0;
     }
 
-    var_dump($response);
+    $response['ket_qua_trung'] = $ket_qua_trung;
 
     echo json_encode($response);
 }
