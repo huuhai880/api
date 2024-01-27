@@ -463,7 +463,6 @@ class tin
         $result['tin'] = $tin;
         $result['ds_chi_tiet'] = $ds_chi_tiet;
         $result['ds_thong_ke'] = $thong_ke;
-        $result['result_diem_tang'] = $result_diem_tang;
         $result['success'] = 1;
 
         return $result;
