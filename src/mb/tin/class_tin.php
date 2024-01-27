@@ -939,6 +939,9 @@ class tin
         $tin->hai_c,$tin->ba_c, $tin->bon_c, $tin->da_daxien, $tin->xac, $tin->thuc_thu, $tin->tien_trung, '$tin->so_trung', $tin->trang_thai,'$vung_mien', '$message_id' )";
             //echo "sql1: " . $sql . "</br>";
             //echo $sql . "<br/>";
+
+            var_dump($conn->get_query_result($sql));
+
             if ($conn->get_query_result($sql)) {
                 $id_tin = $conn->get_insert_id(); //Lấy id tin vừa ghi vào csdl
                 foreach ($ds_chi_tiet as $chi_tiet) {
