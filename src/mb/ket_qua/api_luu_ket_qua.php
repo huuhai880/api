@@ -88,6 +88,7 @@ if ($_POST["action"] === "lay_kq") {
         while ($row = $limit_number->fetch_assoc()) {
             
             $ket_qua_trung[] = $row;
+            var_dump($row);
         }
     }
     else{
