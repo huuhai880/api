@@ -418,7 +418,7 @@ class tin
 
         $html_thong_ke = tin_thongke::toHTMLFormArray($thong_ke);
 
-        // $tin = tin::CapNhatThongKeVaoTin($thong_ke, $tin);
+        $tin = tin::CapNhatThongKeVaoTin($thong_ke, $tin);
 
         
         $tin->trang_thai = -1;
@@ -939,8 +939,6 @@ class tin
         $tin->hai_c,$tin->ba_c, $tin->bon_c, $tin->da_daxien, $tin->xac, $tin->thuc_thu, $tin->tien_trung, '$tin->so_trung', $tin->trang_thai,'$vung_mien', '$message_id' )";
             //echo "sql1: " . $sql . "</br>";
             //echo $sql . "<br/>";
-
-            var_dump($sql);
 
             if ($conn->get_query_result($sql)) {
                 $id_tin = $conn->get_insert_id(); //Lấy id tin vừa ghi vào csdl
