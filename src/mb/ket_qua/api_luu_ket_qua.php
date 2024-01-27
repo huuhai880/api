@@ -66,4 +66,38 @@ if ($_POST["action"] === "luu_kq") {
     echo json_encode($response);
 }
 
+if ($_POST["action"] === "lay_kq") {
+
+
+    $sql_connector = new sql_connector();
+
+    if(!$sql_connector->conn){ //Nếu có lỗi kết nối csdl
+        $response['log'] .= "Loi ket noi csdl; ";
+        $response['error'] = $sql_connector->get_connect_error();
+        $response['success'] = 0;
+        echo json_encode($response);
+        exit();
+    }
+
+    $sql_lay_ket_qua = "SELECT * FROM `ket_qua_trung` ORDER BY `id` DESC LIMIT 1;";
+
+    $ket_qua = [];
+
+    if ($limit_number = $sql_connector->get_query_result($sql_lay_ket_qua)) {
+
+        while ($row = $limit_number->fetch_assoc()) {
+            
+            $ket_qua = $row;
+        }
+    }
+    else{
+
+        $response['success'] = 0;
+    }
+
+    var_dump($response);
+
+    echo json_encode($response);
+}
+
 ?>
