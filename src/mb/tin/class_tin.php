@@ -405,8 +405,6 @@ class tin
                     $co = $chi_tiet_cau_hinh->co; //cò
                     $trung = $chi_tiet_cau_hinh->trung;
 
-                   
-                    
                     $chi_tiet_tin->xac = $chi_tiet_tin->diem * 54 * $so_luong_so; //Xác của tin
 
                     $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co * 10; //Tiền
