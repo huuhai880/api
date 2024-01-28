@@ -22,6 +22,7 @@
         $result = $sql_connector->get_query_result($sql);
 		if(mysqli_num_rows($result) > 0){
                 $row = mysqli_fetch_array($result);
+				$response["ten_tai_khoan"] = $row["ten_tai_khoan"];
 				$response["loai_tai_khoan"] = $row["loai_tai_khoan"];
 				$response["trang_thai"] = $row["trang_thai"];
 				$response["total_money"] = $row["total_money"];
