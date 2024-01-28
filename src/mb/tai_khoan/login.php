@@ -24,6 +24,7 @@
                 $row = mysqli_fetch_array($result);
 				$response["loai_tai_khoan"] = $row["loai_tai_khoan"];
 				$response["trang_thai"] = $row["trang_thai"];
+				$response["total_money"] = $row["total_money"];
 				$response["success"] = 1;
 		}
         else{
