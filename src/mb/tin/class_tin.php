@@ -378,7 +378,7 @@ class tin
 
                     
 
-                    $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co ; //Tiền
+                    $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co; //Tiền
                     $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
                     
 
@@ -407,7 +407,7 @@ class tin
 
                     $chi_tiet_tin->xac = $chi_tiet_tin->diem * 54 * $so_luong_so; //Xác của tin
 
-                    $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co 0; //Tiền
+                    $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co; //Tiền
                     $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
 
                     
