@@ -13,24 +13,41 @@
 	$response = array();
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		$username = $_POST['ten_tai_khoan'];
-		$password = $_POST['mat_khau'];
-		$is_web = $_POST['is_web'];
-		$sql = "SELECT ten_tai_khoan, loai_tai_khoan, trang_thai, total_money FROM tai_khoan 
+		
+		$sql ="";
+
+		if($_POST['action'] =='login'){
+
+			$password = $_POST['mat_khau'];
+			$is_web = $_POST['is_web'];
+
+			$sql = "SELECT ten_tai_khoan, loai_tai_khoan, trang_thai, total_money FROM tai_khoan 
 			WHERE ten_tai_khoan = '$username' AND mat_khau = '$password'";
 
+		}else{
+
+			$sql = "SELECT ten_tai_khoan, loai_tai_khoan, trang_thai, total_money FROM tai_khoan 
+			WHERE ten_tai_khoan = '$username'";
+
+		}
+
+
 		$sql_connector = new sql_connector();
-        $result = $sql_connector->get_query_result($sql);
+		$result = $sql_connector->get_query_result($sql);
 		if(mysqli_num_rows($result) > 0){
-                $row = mysqli_fetch_array($result);
+				$row = mysqli_fetch_array($result);
 				$response["ten_tai_khoan"] = $row["ten_tai_khoan"];
 				$response["loai_tai_khoan"] = $row["loai_tai_khoan"];
 				$response["trang_thai"] = $row["trang_thai"];
 				$response["total_money"] = $row["total_money"];
 				$response["success"] = 1;
 		}
-        else{
+		else{
 			$response["success"] = 0;
 		}
+
+
+		
 		
 		echo json_encode($response);
 		
