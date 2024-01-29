@@ -292,7 +292,7 @@ class tin
                         $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem * 4; //Xác
                     
                     $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co; //Tiền
-                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
+                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co; //Thực thu
 
                     
                     $thong_ke['2c-dd']->xac += $chi_tiet_tin->xac; //Cập nhật thống kê xác
@@ -319,7 +319,7 @@ class tin
                         $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem; //Xác
 
                     $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co; //Tiền
-                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
+                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co; //Thực thu
 
                     
                     $thong_ke['3c-dd']->xac += $chi_tiet_tin->xac; //Cập nhật thống kê xác
@@ -343,7 +343,7 @@ class tin
                     $trung = $chi_tiet_cau_hinh->trung; //trúng
 
                     $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co ; //Tiền
-                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
+                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co; //Thực thu
                     
 
                     //Cập nhật trúng trật
@@ -379,7 +379,7 @@ class tin
                     
 
                     $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co; //Tiền
-                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
+                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co; //Thực thu
                     
 
                     //Cập nhật trúng trật
@@ -408,7 +408,7 @@ class tin
                     $chi_tiet_tin->xac = $chi_tiet_tin->diem * 54 * $so_luong_so; //Xác của tin
 
                     $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co; //Tiền
-                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
+                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co; //Thực thu
 
                     
                     $thong_ke['dat']->xac += $chi_tiet_tin->xac; //Cập nhật thống kê xác
@@ -426,7 +426,7 @@ class tin
 
                     $chi_tiet_tin->xac = $chi_tiet_tin->diem * 72 * $so_luong_so; //Xác của tin
                     $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co ; //Tiền
-                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
+                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co; //Thực thu
 
                     $thong_ke['dax']->xac += $chi_tiet_tin->xac; //Cập nhật thống kê xác
                     $thong_ke['dax']->thuc_thu += $chi_tiet_tin->thuc_thu;
@@ -600,7 +600,7 @@ class tin
                         $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem * 4; //Xác
                     
                     $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co; //Tiền
-                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
+                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co; //Thực thu
 
                     //Kiểm tra trúng trật
                     if ($da_co_ket_qua){
@@ -644,7 +644,7 @@ class tin
                         $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem; //Xác
 
                     $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co; //Tiền
-                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
+                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co; //Thực thu
 
                     //Kiểm tra trúng trật
                     if ($da_co_ket_qua){
@@ -690,7 +690,7 @@ class tin
                     
 
                     $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co ; //Tiền
-                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
+                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co; //Thực thu
 
                     //Kiểm tra trúng trật
                     if ($da_co_ket_qua){
@@ -751,7 +751,7 @@ class tin
                     
 
                     $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co; //Tiền
-                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
+                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co; //Thực thu
                     //Kiểm tra trúng trật
                     if ($da_co_ket_qua){
 
@@ -803,7 +803,7 @@ class tin
                     $chi_tiet_tin->xac = $chi_tiet_tin->diem * 54 * $so_luong_so; //Xác của tin
 
                     $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co; //Tiền
-                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
+                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co; //Thực thu
 
                     if ($da_co_ket_qua){ //Cập nhật kết quả
 
@@ -839,7 +839,7 @@ class tin
 
                     $chi_tiet_tin->xac = $chi_tiet_tin->diem * 72 * $so_luong_so; //Xác của tin
                     $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co; //Tiền
-                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
+                    $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co ; //Thực thu
 
                     if ($da_co_ket_qua){ //Cập nhật kết quả
                         $result_ket_qua_tin = $ket_qua_mien_bac->DaXien($chi_tiet_tin, $trung, $so_arr);
