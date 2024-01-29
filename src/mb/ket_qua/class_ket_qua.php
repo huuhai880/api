@@ -199,7 +199,7 @@ class ket_qua_dai
                     if ($so == $so_cuoi) { //So sánh số cuối, nếu bằng thì cập nhật 
 
                         $chi_tiet->tien_trung += $chi_tiet->diem * $trung *10;
-                        $chi_tiet->so_trung .= $con . '-';
+                        $chi_tiet->so_trung .= $so . '-';
                     }
                 }
             }
