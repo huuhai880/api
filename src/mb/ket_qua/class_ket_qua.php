@@ -150,7 +150,7 @@ class ket_qua_dai
 
     function HaiConDau(chi_tiet_tin $chi_tiet, float $trung): chi_tiet_tin
     {
-        $giai_can_lay = (sizeof($this->cac_giai) == 9) ? 8 : 7; //Nam lấy 8, bắc lấy 7
+        $giai_can_lay = 7; //Nam lấy 8, bắc lấy 7
         $cac_so = explode(' ', $chi_tiet->so);
         $size_of_cac_so = sizeof($cac_so);
         foreach ($cac_so as $so) {
@@ -272,7 +272,7 @@ class ket_qua_dai
     //Hàm soi đánh 3 con đầu. Miền Nam giải 7, miền bắc Giải 6
     function XiuDau(chi_tiet_tin $chi_tiet, float $trung): chi_tiet_tin
     {
-        $vi_tri_giai_can_lay = (sizeof($this->cac_giai) == 9) ? 7 : 6; //Nam lấy 7, bắc lấy 6
+        $vi_tri_giai_can_lay =  6; //Nam lấy 7, bắc lấy 6
         $giai_can_lay = $this->cac_giai[$vi_tri_giai_can_lay];
         $mang_cac_so_cua_giai = explode(';', $giai_can_lay); //Tách các số của giải thành mảng
 
