@@ -515,13 +515,10 @@ class tin
 
         //Lấy cấu hình
         $cau_hinh = cau_hinh::LayCauHinh($tin->tai_khoan_danh);
-        //Lấy kết quả theo ngày đánh
-        $day_of_week = date('w', strtotime($tin->thoi_gian_danh));
-        if ($da_co_ket_qua) {
-           
-            $ket_qua_mien_bac = ket_qua_ngay::LayKetQuaMienBac($day_of_week);
-        }
-
+        
+          
+        $ket_qua_mien_bac = ket_qua_ngay::LayKetQuaMienBac();
+        
         $html_chi_tiet = '<style>table {width: 100%;} th,td {text-align: right;} td {vertical-align: top;} th:nth-child(1),td:nth-child(1) {text-align: left;}</style>
                         <table> 
                         <thead> <tr><th >Đài</th><th >Số</th><th >Kiểu</th><th >Điểm</th><th >Tiền</th></tr> </thead> 
@@ -558,6 +555,7 @@ class tin
                 $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem; //Xác
                 if ($chi_tiet_tin->dai === 'mb' && $chi_tiet_tin->kieu === 'dau')
                     $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem * 4; //Xác
+                
                 $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co * 10; //Tiền
                 $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co * 10; //Thực thu
 
