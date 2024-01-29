@@ -571,7 +571,7 @@ class tin
                 //Cập nhật trúng trật
                 if ($chi_tiet_tin->tien_trung > 0) {
                     $thong_ke['2c-dd']->tien_trung += $chi_tiet_tin->tien_trung;
-                    $thong_ke['2c-dd']->so_trung .= $chi_tiet_tin->so_trung . '</br>';
+                    $thong_ke['2c-dd']->so_trung .= $chi_tiet_tin->so_trung . '';
                 }
                 $html_chi_tiet .= $chi_tiet_tin->toHTML();
             }
@@ -603,7 +603,7 @@ class tin
                 //Cập nhật trúng trật
                 if ($chi_tiet_tin->tien_trung > 0) {
                     $thong_ke['3c']->tien_trung += $chi_tiet_tin->tien_trung;
-                    $thong_ke['3c']->so_trung .= $chi_tiet_tin->so_trung . '</br>';
+                    $thong_ke['3c']->so_trung .= $chi_tiet_tin->so_trung . '';
                 }
                 $html_chi_tiet .= $chi_tiet_tin->toHTML();
             }
@@ -631,7 +631,7 @@ class tin
                     $thong_ke['2c-b']->thuc_thu += $chi_tiet_tin->thuc_thu;
                     if ($chi_tiet_tin->tien_trung > 0) {
                         $thong_ke['2c-b']->tien_trung += $chi_tiet_tin->tien_trung;
-                        $thong_ke['2c-b']->so_trung .= $chi_tiet_tin->so_trung . '</br>';
+                        $thong_ke['2c-b']->so_trung .= $chi_tiet_tin->so_trung . '';
                     }
                 }
                 if ($con == 3) {
@@ -639,7 +639,7 @@ class tin
                     $thong_ke['3c']->thuc_thu += $chi_tiet_tin->thuc_thu;
                     if ($chi_tiet_tin->tien_trung > 0) {
                         $thong_ke['3c']->tien_trung += $chi_tiet_tin->tien_trung;
-                        $thong_ke['3c']->so_trung .= $chi_tiet_tin->so_trung . '</br>';
+                        $thong_ke['3c']->so_trung .= $chi_tiet_tin->so_trung . '';
                     }
                 }
                 if ($con == 4) {
@@ -647,7 +647,7 @@ class tin
                     $thong_ke['4c']->thuc_thu += $chi_tiet_tin->thuc_thu;
                     if ($chi_tiet_tin->tien_trung > 0) {
                         $thong_ke['4c']->tien_trung += $chi_tiet_tin->tien_trung;
-                        $thong_ke['4c']->so_trung .= $chi_tiet_tin->so_trung . '</br>';
+                        $thong_ke['4c']->so_trung .= $chi_tiet_tin->so_trung . '';
                     }
                 }
                 $html_chi_tiet .= $chi_tiet_tin->toHTML();
@@ -674,7 +674,7 @@ class tin
                     $thong_ke['2c-b']->thuc_thu += $chi_tiet_tin->thuc_thu;
                     if ($chi_tiet_tin->tien_trung > 0) {
                         $thong_ke['2c-b']->tien_trung += $chi_tiet_tin->tien_trung;
-                        $thong_ke['2c-b']->so_trung .= $chi_tiet_tin->so_trung . '</br>';
+                        $thong_ke['2c-b']->so_trung .= $chi_tiet_tin->so_trung . '';
                     }
                 }
                 if ($con == 3) {
@@ -682,7 +682,7 @@ class tin
                     $thong_ke['3c']->thuc_thu += $chi_tiet_tin->thuc_thu;
                     if ($chi_tiet_tin->tien_trung > 0) {
                         $thong_ke['3c']->tien_trung += $chi_tiet_tin->tien_trung;
-                        $thong_ke['3c']->so_trung .= $chi_tiet_tin->so_trung . '</br>';
+                        $thong_ke['3c']->so_trung .= $chi_tiet_tin->so_trung . '';
                     }
                 }
                 $html_chi_tiet .= $chi_tiet_tin->toHTML();
@@ -709,7 +709,7 @@ class tin
                 $thong_ke['dat']->thuc_thu += $chi_tiet_tin->thuc_thu;
                 if ($chi_tiet_tin->tien_trung > 0) {
                     $thong_ke['dat']->tien_trung += $chi_tiet_tin->tien_trung;
-                    $thong_ke['dat']->so_trung .= $chi_tiet_tin->so_trung . '</br>';
+                    $thong_ke['dat']->so_trung .= $chi_tiet_tin->so_trung . '';
                 }
                 $html_chi_tiet .= $chi_tiet_tin->toHTML();
             }
@@ -732,7 +732,7 @@ class tin
                 $thong_ke['dax']->thuc_thu += $chi_tiet_tin->thuc_thu;
                 if ($chi_tiet_tin->tien_trung > 0) {
                     $thong_ke['dax']->tien_trung += $chi_tiet_tin->tien_trung;
-                    $thong_ke['dax']->so_trung .= $chi_tiet_tin->so_trung . '</br>';
+                    $thong_ke['dax']->so_trung .= $chi_tiet_tin->so_trung . '';
                 }
                 $html_chi_tiet .= $chi_tiet_tin->toHTML();
             }
