@@ -256,13 +256,9 @@ class tin
         //Biến thống kê
         $thong_ke = array(
             '2c-dd' => new tin_thongke('2c-dd'),
-            '2c-bl' => new tin_thongke('2c-bl'),
-            '3c-dd' => new tin_thongke('3c-dd'),
-            '3c-bl' => new tin_thongke('3c-bl'),
+            '2c-b' => new tin_thongke('2c-b'),
+            '3c' => new tin_thongke('3c'),
             '4c' => new tin_thongke('4c'),
-            '4c-bl' => new tin_thongke('4c-bl'),
-            '2c-baylo' => new tin_thongke('2c-baylo'),
-            '3c-baylo' => new tin_thongke('3c-baylo'),
             'dat' => new tin_thongke('dat'),
             'dax' => new tin_thongke('dax'),
         );
@@ -991,25 +987,22 @@ class tin
 
     public static function CapNhatThongKeVaoTin(array $thong_ke, tin $tin): tin
     {
-        $tin->hai_c = $thong_ke['2c-bl']->xac + $thong_ke['2c-dd']->xac + $thong_ke['2c-baylo']->xac;
-        $tin->ba_c = $thong_ke['3c-dd']->xac + $thong_ke['3c-bl']->xac + $thong_ke['3c-baylo']->xac;
-        $tin->bon_c = $thong_ke['4c']->xac + $thong_ke['4c-bl']->xac;
+        $tin->hai_c = $thong_ke['2c-b']->xac + $thong_ke['2c-dd']->xac;
+        $tin->ba_c = $thong_ke['3c']->xac;
+        $tin->bon_c = $thong_ke['4c']->xac;
         $tin->da_daxien = $thong_ke['dat']->xac + $thong_ke['dax']->xac;
         $tin->xac = $tin->hai_c + $tin->ba_c + $tin->bon_c + $tin->da_daxien;
 
-        $tin->thuc_thu = $thong_ke['2c-bl']->thuc_thu + $thong_ke['2c-dd']->thuc_thu + $thong_ke['2c-baylo']->thuc_thu
-            + $thong_ke['3c-dd']->thuc_thu + $thong_ke['3c-bl']->thuc_thu + $thong_ke['3c-baylo']->thuc_thu
-            + $thong_ke['4c']->thuc_thu + $thong_ke['4c-bl']->thuc_thu
+        $tin->thuc_thu = $thong_ke['2c-b']->thuc_thu + $thong_ke['2c-dd']->thuc_thu
+            + $thong_ke['3c']->thuc_thu + $thong_ke['4c']->thuc_thu
             + $thong_ke['dat']->thuc_thu + $thong_ke['dax']->thuc_thu;
 
-        $tin->tien_trung = $thong_ke['2c-bl']->tien_trung + $thong_ke['2c-dd']->tien_trung + $thong_ke['2c-baylo']->tien_trung
-            + $thong_ke['3c-dd']->tien_trung + $thong_ke['3c-bl']->tien_trung + $thong_ke['3c-baylo']->tien_trung
-            + $thong_ke['4c']->tien_trung + $thong_ke['4c-bl']->tien_trung
+        $tin->tien_trung = $thong_ke['2c-b']->tien_trung + $thong_ke['2c-dd']->tien_trung
+            + $thong_ke['3c']->tien_trung + $thong_ke['4c']->tien_trung
             + $thong_ke['dat']->tien_trung + $thong_ke['dax']->tien_trung;
 
-        $tin->so_trung = $thong_ke['2c-bl']->so_trung . $thong_ke['2c-dd']->so_trung . $thong_ke['2c-baylo']->so_trung
-            . $thong_ke['3c-dd']->so_trung . $thong_ke['3c-bl']->so_trung . $thong_ke['3c-baylo']->so_trung
-            . $thong_ke['4c']->so_trung . $thong_ke['4c-bl']->so_trung
+        $tin->so_trung = $thong_ke['2c-b']->so_trung . $thong_ke['2c-dd']->so_trung
+            . $thong_ke['3c']->so_trung . $thong_ke['4c']->so_trung
             . $thong_ke['dat']->so_trung . $thong_ke['dax']->so_trung;
 
         return $tin;
