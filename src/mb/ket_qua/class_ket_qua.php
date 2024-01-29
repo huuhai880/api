@@ -193,7 +193,7 @@ class ket_qua_dai
         foreach ($cac_so as $so) {
             for ($i = $giai_bat_dau_soi; $i >= 0; $i--) { //Soi từng giải
                 $giai = $this->cac_giai[$i];
-                $mang_cac_so_cua_giai = explode(';', $giai); //Phân tách các số của giải
+                $mang_cac_so_cua_giai = explode(',', $giai); //Phân tách các số của giải
                 foreach ($mang_cac_so_cua_giai as $so_cua_giai) { //Với mỗi số của giải, lấy só cuối, có thể là 2, 3, 4 số cuối
                     $so_cuoi = substr($so_cua_giai, (-1 * $con));
                     if ($so == $so_cuoi) { //So sánh số cuối, nếu bằng thì cập nhật 
@@ -213,7 +213,7 @@ class ket_qua_dai
         foreach ($cac_so as $so) {
             for ($i = 8; $i >= 5; $i--) { //Soi từ giải 8 đến giải 5
                 $giai = $this->cac_giai[$i];
-                $mang_cac_so_cua_giai = explode(';', $giai); //Phân tách các số của giải
+                $mang_cac_so_cua_giai = explode(',', $giai); //Phân tách các số của giải
                 foreach ($mang_cac_so_cua_giai as $so_cua_giai) { //Với mỗi số của giải, lấy 2 số cuối
                     $so_cuoi = substr($so_cua_giai, -2); 
                     if ($so == $so_cuoi) { //So sánh hai số cuối, nếu bằng thì cập nhật 
@@ -240,7 +240,7 @@ class ket_qua_dai
         foreach ($cac_so as $so) {
             for ($i = 7; $i >= 5; $i--) { //Soi từ giải 7 đến giải 5
                 $giai = $this->cac_giai[$i];
-                $mang_cac_so_cua_giai = explode(';', $giai); //Phân tách các số của giải
+                $mang_cac_so_cua_giai = explode(',', $giai); //Phân tách các số của giải
                 foreach ($mang_cac_so_cua_giai as $so_cua_giai) { //Với mỗi số của giải, lấy 3 số cuối
                     $so_cuoi = substr($so_cua_giai, -3); 
                     if ($so == $so_cuoi) { //So sánh, nếu bằng thì cập nhật 
@@ -251,7 +251,7 @@ class ket_qua_dai
                 }
             }
             //Số đầu tiên giải 4
-             $giai_tu  = explode(';', $this->cac_giai[4]);
+             $giai_tu  = explode(',', $this->cac_giai[4]);
              $so_dau_giai_tu = $giai_tu[0];
              $so_cuoi = substr($so_dau_giai_tu, -3); //Lấy 3 chữ số cuối
              if ($so == $so_cuoi) { //So sánh, nếu bằng thì cập nhật 
@@ -274,7 +274,7 @@ class ket_qua_dai
     {
         $vi_tri_giai_can_lay =  6; //Nam lấy 7, bắc lấy 6
         $giai_can_lay = $this->cac_giai[$vi_tri_giai_can_lay];
-        $mang_cac_so_cua_giai = explode(';', $giai_can_lay); //Tách các số của giải thành mảng
+        $mang_cac_so_cua_giai = explode(',', $giai_can_lay); //Tách các số của giải thành mảng
 
         $cac_so = explode(' ', $chi_tiet->so); //Tách dãy các cần soi  thành mảng
         //$size_of_cac_so = sizeof($cac_so); //Số lượng số cần soi
@@ -350,7 +350,7 @@ class ket_qua_dai
         $giai_bat_dau_soi = (count($this->cac_giai) + 1) - $con; //Lấy vị trí giải bắt đầu soi trở về 0
         for ($i = $giai_bat_dau_soi; $i >= 0; $i--) { //Soi từng giải
             $giai = $this->cac_giai[$i];
-            $mang_cac_so_cua_giai = explode(';', $giai); //Phân tách các số của giải
+            $mang_cac_so_cua_giai = explode(',', $giai); //Phân tách các số của giải
             foreach ($mang_cac_so_cua_giai as $so_cua_giai) { //Với mỗi số của giải, lấy só cuối, có thể là 2, 3, 4 số cuối
                 $so_cuoi = substr($so_cua_giai, (-1 * $con));
                 if ($so == $so_cuoi) //So sánh số cuối, nếu bằng thì cập nhật 
