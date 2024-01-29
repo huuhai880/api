@@ -129,7 +129,7 @@ class ket_qua_ngay
                 //Cập nhật kết quả
                 $chi_tiet->tien_trung = ($chi_tiet->tien_trung == -1) ?
                     $chi_tiet->diem * $trung * $so_lan_xuat_hien_cua_ca_2_so :
-                    $chi_tiet->tien_trung + ($chi_tiet->diem * $trung * $so_lan_xuat_hien_cua_ca_2_so * 100);
+                    $chi_tiet->tien_trung + ($chi_tiet->diem * $trung * $so_lan_xuat_hien_cua_ca_2_so *1000);
                 $chi_tiet->so_trung .= $so . '-';
             }
         }
@@ -156,7 +156,7 @@ class ket_qua_dai
         foreach ($cac_so as $so) {
             $giai = $this->cac_giai[$giai_can_lay];
             if (strpos($giai, $so) !== false) {
-                $chi_tiet->tien_trung += ($chi_tiet->xac / $size_of_cac_so) * $trung *100;
+                $chi_tiet->tien_trung += ($chi_tiet->xac / $size_of_cac_so) * $trung *1000;
                 $chi_tiet->so_trung .= $so . "-";
             }
         }
@@ -176,7 +176,7 @@ class ket_qua_dai
         foreach ($cac_so as $so) {
 
             if ($so == $hai_so_cuoi_db) { //So mỗi số với 2 số cuối giải đặc biệt
-                $chi_tiet->tien_trung += ($chi_tiet->xac / $size_of_cac_so) * $trung *100;
+                $chi_tiet->tien_trung += ($chi_tiet->xac / $size_of_cac_so) * $trung *1000;
                 $chi_tiet->so_trung .= $so . "-";
             }
         }
@@ -198,7 +198,7 @@ class ket_qua_dai
                     $so_cuoi = substr($so_cua_giai, (-1 * $con));
                     if ($so == $so_cuoi) { //So sánh số cuối, nếu bằng thì cập nhật 
 
-                        $chi_tiet->tien_trung += $chi_tiet->diem * $trung *100;
+                        $chi_tiet->tien_trung += $chi_tiet->diem * $trung *1000;
                         $chi_tiet->so_trung .= $so . '-';
                     }
                 }
@@ -218,7 +218,7 @@ class ket_qua_dai
                     $so_cuoi = substr($so_cua_giai, -2); 
                     if ($so == $so_cuoi) { //So sánh hai số cuối, nếu bằng thì cập nhật 
 
-                        $chi_tiet->tien_trung += $chi_tiet->diem * $trung *100;
+                        $chi_tiet->tien_trung += $chi_tiet->diem * $trung *1000;
                         $chi_tiet->so_trung .=$so . '-';
                     }
                 }
@@ -227,7 +227,7 @@ class ket_qua_dai
             $so_cuoi = substr($this->cac_giai[0], -2); //Lấy 2 số cuối db
             if ($so == $so_cuoi) { //So sánh hai số cuối, nếu bằng thì cập nhật 
 
-                $chi_tiet->tien_trung += $chi_tiet->diem * $trung;
+                $chi_tiet->tien_trung += $chi_tiet->diem * $trung * 1000;
                 $chi_tiet->so_trung .= $so . '-';
             } 
         }
@@ -245,7 +245,7 @@ class ket_qua_dai
                     $so_cuoi = substr($so_cua_giai, -3); 
                     if ($so == $so_cuoi) { //So sánh, nếu bằng thì cập nhật 
 
-                        $chi_tiet->tien_trung += $chi_tiet->diem * $trung *100;
+                        $chi_tiet->tien_trung += $chi_tiet->diem * $trung *1000;
                         $chi_tiet->so_trung .= $so . '-';
                     }
                 }
@@ -256,14 +256,14 @@ class ket_qua_dai
              $so_cuoi = substr($so_dau_giai_tu, -3); //Lấy 3 chữ số cuối
              if ($so == $so_cuoi) { //So sánh, nếu bằng thì cập nhật 
  
-                 $chi_tiet->tien_trung += $chi_tiet->diem * $trung *100;
+                 $chi_tiet->tien_trung += $chi_tiet->diem * $trung *1000;
                  $chi_tiet->so_trung .= $so . '-';
              } 
             //Giải đặc biệt
             $so_cuoi = substr($this->cac_giai[0], -3); //Lấy 3 số cuối db
             if ($so == $so_cuoi) { //So sánh, nếu bằng thì cập nhật 
 
-                $chi_tiet->tien_trung += $chi_tiet->diem * $trung *100;
+                $chi_tiet->tien_trung += $chi_tiet->diem * $trung *1000;
                 $chi_tiet->so_trung .= $so . '-';
             } 
         }
@@ -308,7 +308,7 @@ class ket_qua_dai
             if ($so === $ba_so_cuoi) { //So sánh ba số cuối, nếu bằng thì cập nhật 
 
                 //$xac_cua_so = $chi_tiet->xac / $size_of_cac_so;
-                $chi_tiet->tien_trung += $chi_tiet->diem * $trung *100;
+                $chi_tiet->tien_trung += $chi_tiet->diem * $trung *1000;
                 $chi_tiet->so_trung .= $so . '-';
             }
 
@@ -333,7 +333,7 @@ class ket_qua_dai
             $so_lan_xuat_hien_cua_ca_2_so = min($so_lan_so1_xuat_hien, $so_lan_so2_xuat_hien);
             if ($so_lan_xuat_hien_cua_ca_2_so > 0) { //Nếu cả hai số đều xuất hiện ít nhất 1 lần
                 //Cập nhật kết quả
-                $chi_tiet->tien_trung += $chi_tiet->diem * $trung * $so_lan_xuat_hien_cua_ca_2_so *100;
+                $chi_tiet->tien_trung += $chi_tiet->diem * $trung * $so_lan_xuat_hien_cua_ca_2_so *1000;
                 $chi_tiet->so_trung .= $so . '-';
             }
         }
