@@ -20,10 +20,10 @@
     }
 	$ten_tai_khoan = $_POST['ten_tai_khoan'];
     if($ten_tai_khoan === "god")
-		$sql = "SELECT ten_tai_khoan, loai_tai_khoan, ten_hien_thi 
+		$sql = "SELECT ten_tai_khoan, loai_tai_khoan, ten_hien_thi, total_money
                 FROM tai_khoan WHERE ten_tai_khoan != '$ten_tai_khoan'";
     else 
-        $sql = "SELECT ten_tai_khoan, loai_tai_khoan, ten_hien_thi  
+        $sql = "SELECT ten_tai_khoan, loai_tai_khoan, ten_hien_thi, total_money 
                 FROM tai_khoan WHERE tai_khoan_quan_ly = '$ten_tai_khoan'";
     //echo $sql;
     //$sql_connector = new sql_connector();
