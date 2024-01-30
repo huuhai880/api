@@ -31,8 +31,11 @@ if ($_POST["action"] === "doc") {
     $kieu_truy_van = $_POST["kieu_truy_van"]; //Kiểu đọc: {"Tất cả", hoặc ngày cụ thể};
 
     
-    $sql = "SELECT * FROM tin WHERE tai_khoan_danh = '$ten_tai_khoan' OR 
-    tai_khoan_danh IN (SELECT ten_tai_khoan FROM tai_khoan WHERE tai_khoan_quan_ly = '$ten_tai_khoan') ORDER BY `id` DESC";
+    // $sql = "SELECT * FROM tin WHERE tai_khoan_danh = '$ten_tai_khoan' OR 
+    // tai_khoan_danh IN (SELECT ten_tai_khoan FROM tai_khoan WHERE tai_khoan_quan_ly = '$ten_tai_khoan') ORDER BY `id` DESC LIMIT 10";
+
+    $sql = "SELECT * FROM tin WHERE tai_khoan_danh = '$ten_tai_khoan'  ORDER BY `id` DESC LIMIT 10";
+
     //Tạo sql theo bộ lọc
     if($kieu_truy_van === 'Tất cả')
     {
@@ -40,11 +43,10 @@ if ($_POST["action"] === "doc") {
             $sql = "SELECT * FROM tin ORDER BY `id` DESC";
         }
         if ($loai_tai_khoan === 'admin') {
-            $sql = "SELECT * FROM tin WHERE tai_khoan_danh = '$ten_tai_khoan' OR 
-                tai_khoan_danh IN (SELECT ten_tai_khoan FROM tai_khoan WHERE tai_khoan_quan_ly = '$ten_tai_khoan') ORDER BY `id` DESC";
+            $sql = "SELECT * FROM tin WHERE tai_khoan_danh = '$ten_tai_khoan'  ORDER BY `id` DESC LIMIT 10";
         }
         if ($loai_tai_khoan === 'std') {
-            $sql = "SELECT * FROM tin WHERE tai_khoan_danh = '$ten_tai_khoan' ORDER BY `id` DESC";
+            $sql = "SELECT * FROM tin WHERE tai_khoan_danh = '$ten_tai_khoan' ORDER BY `id` DESC LIMIT 10";
         }
     }
     else{//Nếu là một ngày tháng cụ thể dạng d-m-Y
@@ -54,11 +56,10 @@ if ($_POST["action"] === "doc") {
             $sql = "SELECT * FROM tin WHERE thoi_gian_danh = '$date' ORDER BY `id` DESC";
         }
         if($loai_tai_khoan === 'admin') {
-            $sql = "SELECT * FROM tin WHERE thoi_gian_danh = '$date' AND ( tai_khoan_danh = '$ten_tai_khoan' OR 
-                tai_khoan_danh IN (SELECT ten_tai_khoan FROM tai_khoan WHERE tai_khoan_quan_ly = '$ten_tai_khoan')) ORDER BY `id` DESC";
+            $sql = "SELECT * FROM tin WHERE thoi_gian_danh = '$date' AND ( tai_khoan_danh = '$ten_tai_khoan') ORDER BY `id` DESC LIMIT 10";
         }
         if ($loai_tai_khoan === 'std') {
-            $sql = "SELECT * FROM tin WHERE thoi_gian_danh = '$date' AND tai_khoan_danh = '$ten_tai_khoan' ORDER BY `id` DESC";
+            $sql = "SELECT * FROM tin WHERE thoi_gian_danh = '$date' AND tai_khoan_danh = '$ten_tai_khoan' ORDER BY `id` DESC LIMIT 10";
         }
     }
   
