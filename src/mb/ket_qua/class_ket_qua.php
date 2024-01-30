@@ -156,7 +156,7 @@ class ket_qua_dai
         foreach ($cac_so as $so) {
             $giai = $this->cac_giai[$giai_can_lay];
             if (strpos($giai, $so) !== false) {
-                $chi_tiet->tien_trung += ($chi_tiet->xac / $size_of_cac_so) * $trung *1000;
+                $chi_tiet->tien_trung += ($chi_tiet->diem * $trung) *1000;
                 $chi_tiet->so_trung .= $so . "-";
             }
         }
@@ -176,7 +176,7 @@ class ket_qua_dai
         foreach ($cac_so as $so) {
 
             if ($so == $hai_so_cuoi_db) { //So mỗi số với 2 số cuối giải đặc biệt
-                $chi_tiet->tien_trung += ($chi_tiet->xac / $size_of_cac_so) * $trung *1000;
+                $chi_tiet->tien_trung += ($chi_tiet->diem * $trung) *1000;
                 $chi_tiet->so_trung .= $so . "-";
             }
         }
@@ -198,7 +198,7 @@ class ket_qua_dai
                     $so_cuoi = substr($so_cua_giai, (-1 * $con));
                     if ($so == $so_cuoi) { //So sánh số cuối, nếu bằng thì cập nhật 
 
-                        $chi_tiet->tien_trung += $chi_tiet->diem * $trung *1000;
+                        $chi_tiet->tien_trung += ($chi_tiet->diem * $trung) *1000;
                         $chi_tiet->so_trung .= $so . '-';
                     }
                 }
