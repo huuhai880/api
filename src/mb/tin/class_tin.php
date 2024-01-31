@@ -279,13 +279,13 @@ class tin
                 $co = $chi_tiet_cau_hinh->co;
                 $trung = $chi_tiet_cau_hinh->trung;
 
-                $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem; //Xác
+                $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem * 1000; //Xác
 
                 if ($chi_tiet_tin->dai === 'mb' && $chi_tiet_tin->kieu === 'dau')
-                    $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem * 4; //Xác
+                    $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem * 4 * 1000; //Xác
 
-                $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co * 10; //Tiền
-                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co * 10; //Thực thu
+                $chi_tiet_tin->tien = $chi_tiet_tin->xac * ($co / 100); //Tiền
+                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
 
                 $thong_ke['2c-dd']->xac += $chi_tiet_tin->xac; //Cập nhật thống kê xác
                 $thong_ke['2c-dd']->thuc_thu += $chi_tiet_tin->thuc_thu; //Cập nhật thực thu
@@ -303,12 +303,12 @@ class tin
                 $trung = $chi_tiet_cau_hinh->trung;
 
                 if ($chi_tiet_tin->kieu === 'xdau' && $chi_tiet_tin->dai === 'mb')
-                    $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem * 3; //Xác
+                    $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem * 3 * 1000; //Xác
                 else
-                    $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem; //Xác
+                    $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem * 1000; //Xác
 
-                $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co * 10; //Tiền
-                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co * 10; //Thực thu
+                $chi_tiet_tin->tien = $chi_tiet_tin->xac * ($co / 100); //Tiền
+                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
 
                 
                 $thong_ke['3c']->xac += $chi_tiet_tin->xac; //Cập nhật thống kê xác
@@ -329,7 +329,7 @@ class tin
                 $chi_tiet_cau_hinh = $cau_hinh->lay_chi_tiet_bao_lo($vung_mien, $con); //Lấy chi tiết cấu hình theo số con
                 $co = $chi_tiet_cau_hinh->co; //cò
                 $trung = $chi_tiet_cau_hinh->trung; //trúng
-                $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co; //Tiền
+                $chi_tiet_tin->tien = $chi_tiet_tin->xac * ($co / 100); //Tiền
                 $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
 
                 //Cập nhật trúng trật
@@ -357,12 +357,12 @@ class tin
 
                 $con = strlen($so_arr[0]); //con, số ký tự số, 2 con, 3 con, sử dụng để lấy cấu hình và lưu thống kê
 
-                $chi_tiet_tin->xac = 7 * $chi_tiet_tin->diem * $so_luong_so; //Xác = số_lô * điểm * số lượng số. số lô miền nam là 18,17,16, mb 27 23 20 
+                $chi_tiet_tin->xac = 7 * $chi_tiet_tin->diem * $so_luong_so * 1000; //Xác = số_lô * điểm * số lượng số. số lô miền nam là 18,17,16, mb 27 23 20 
                 $chi_tiet_cau_hinh = ($con == 2)? $cau_hinh->lay_chi_tiet_7lo_2con() : $cau_hinh->lay_chi_tiet_7lo_3con(); //Lấy chi tiết cấu hình theo số con
                 $co = $chi_tiet_cau_hinh->co; //cò
                 $trung = $chi_tiet_cau_hinh->trung; //trúng
-                $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co * 10; //Tiền
-                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co * 10; //Thực thu
+                $chi_tiet_tin->tien = $chi_tiet_tin->xac * ($co / 100); //Tiền
+                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
                 
                 //Cập nhật trúng trật
                 if ($con == 2) {
@@ -386,11 +386,11 @@ class tin
                 $co = $chi_tiet_cau_hinh->co; //cò
                 $trung = $chi_tiet_cau_hinh->trung;
 
-                $chi_tiet_tin->xac = $chi_tiet_tin->diem * 36 * $so_luong_so; //Xác của tin
+                $chi_tiet_tin->xac = $chi_tiet_tin->diem * 36 * $so_luong_so * 1000; //Xác của tin
                 if ($chi_tiet_tin->dai === 'mb')
-                    $chi_tiet_tin->xac = $chi_tiet_tin->diem * 54 * $so_luong_so; //Xác của tin
-                $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co * 10; //Tiền
-                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co * 10; //Thực thu
+                    $chi_tiet_tin->xac = $chi_tiet_tin->diem * 54 * $so_luong_so * 1000; //Xác của tin
+                $chi_tiet_tin->tien = $chi_tiet_tin->xac * ($co / 100); //Tiền
+                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
 
                 $thong_ke['dat']->xac += $chi_tiet_tin->xac; //Cập nhật thống kê xác
                 $thong_ke['dat']->thuc_thu += $chi_tiet_tin->thuc_thu;
@@ -405,9 +405,9 @@ class tin
                 $co = $chi_tiet_cau_hinh->co; //cò
                 $trung = $chi_tiet_cau_hinh->trung;
 
-                $chi_tiet_tin->xac = $chi_tiet_tin->diem * 72 * $so_luong_so; //Xác của tin
-                $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co * 10; //Tiền
-                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co * 10; //Thực thu
+                $chi_tiet_tin->xac = $chi_tiet_tin->diem * 72 * $so_luong_so * 1000; //Xác của tin
+                $chi_tiet_tin->tien = $chi_tiet_tin->xac * ($co / 100); //Tiền
+                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
 
                 $thong_ke['dax']->xac += $chi_tiet_tin->xac; //Cập nhật thống kê xác
                 $thong_ke['dax']->thuc_thu += $chi_tiet_tin->thuc_thu;
@@ -552,12 +552,12 @@ class tin
                 $co = $chi_tiet_cau_hinh->co;
                 $trung = $chi_tiet_cau_hinh->trung;
 
-                $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem; //Xác
+                $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem * 1000; //Xác
                 if ($chi_tiet_tin->dai === 'mb' && $chi_tiet_tin->kieu === 'dau')
-                    $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem * 4; //Xác
+                    $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem * 4 * 1000; //Xác
                 
-                $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co * 10; //Tiền
-                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co * 10; //Thực thu
+                $chi_tiet_tin->tien = $chi_tiet_tin->xac * ($co / 100); //Tiền
+                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
 
                 //Kiểm tra trúng trật
                 if ($da_co_ket_qua)
@@ -584,12 +584,12 @@ class tin
                 $trung = $chi_tiet_cau_hinh->trung;
 
                 if ($chi_tiet_tin->kieu === 'xdau' && $chi_tiet_tin->dai === 'mb')
-                    $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem * 3; //Xác
+                    $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem * 3 * 1000; //Xác
                 else
-                    $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem; //Xác
+                    $chi_tiet_tin->xac = $so_luong_so * $chi_tiet_tin->diem * 1000; //Xác
 
-                $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co * 10; //Tiền
-                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co * 10; //Thực thu
+                $chi_tiet_tin->tien = $chi_tiet_tin->xac * ($co / 100); //Tiền
+                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
 
                 //Kiểm tra trúng trật
                 if ($da_co_ket_qua)
@@ -614,12 +614,12 @@ class tin
                 $con = strlen($so_arr[0]); //con, số ký tự số, 2 con, 3 con, sử dụng để lấy cấu hình và lưu thống kê
                 $so_lo = $so_lo_mien_bac[$con]; //Tính số lô dựa vào con (số ký tự)
 
-                $chi_tiet_tin->xac += $so_lo * $chi_tiet_tin->diem * $so_luong_so; //Xác = số_lô * điểm * số lượng số. số lô miền nam là 18,17,16, mb 27 23 20 
+                $chi_tiet_tin->xac += $so_lo * $chi_tiet_tin->diem * $so_luong_so * 1000; //Xác = số_lô * điểm * số lượng số. số lô miền nam là 18,17,16, mb 27 23 20 
                 $chi_tiet_cau_hinh = $cau_hinh->lay_chi_tiet_bao_lo($vung_mien, $con); //Lấy chi tiết cấu hình theo số con
                 $co = $chi_tiet_cau_hinh->co; //cò
                 $trung = $chi_tiet_cau_hinh->trung; //trúng
-                $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co * 10; //Tiền
-                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co * 10; //Thực thu
+                $chi_tiet_tin->tien = $chi_tiet_tin->xac * ($co / 100); //Tiền
+                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
                 //Kiểm tra trúng trật
                 if ($da_co_ket_qua)
                     $chi_tiet_tin = $ket_qua_dai->Bao($chi_tiet_tin, $trung);
@@ -657,12 +657,12 @@ class tin
 
                 $con = strlen($so_arr[0]); //con, số ký tự số, 2 con, 3 con, sử dụng để lấy cấu hình và lưu thống kê
 
-                $chi_tiet_tin->xac = 7 * $chi_tiet_tin->diem * $so_luong_so; //Xác = số_lô * điểm * số lượng số. số lô miền nam là 18,17,16, mb 27 23 20 
+                $chi_tiet_tin->xac = 7 * $chi_tiet_tin->diem * $so_luong_so * 1000; //Xác = số_lô * điểm * số lượng số. số lô miền nam là 18,17,16, mb 27 23 20 
                 $chi_tiet_cau_hinh = ($con == 2)? $cau_hinh->lay_chi_tiet_7lo_2con() : $cau_hinh->lay_chi_tiet_7lo_3con(); //Lấy chi tiết cấu hình theo số con
                 $co = $chi_tiet_cau_hinh->co; //cò
                 $trung = $chi_tiet_cau_hinh->trung; //trúng
-                $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co * 10; //Tiền
-                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co * 10; //Thực thu
+                $chi_tiet_tin->tien = $chi_tiet_tin->xac * ($co / 100); //Tiền
+                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
                 //Kiểm tra trúng trật
                 if ($da_co_ket_qua)
                     $chi_tiet_tin = ($con == 2)? $ket_qua_dai->BayLo2con($chi_tiet_tin, $trung) : $ket_qua_dai->BayLo3con($chi_tiet_tin, $trung);
@@ -694,11 +694,11 @@ class tin
                 $co = $chi_tiet_cau_hinh->co; //cò
                 $trung = $chi_tiet_cau_hinh->trung;
 
-                $chi_tiet_tin->xac = $chi_tiet_tin->diem * 36 * $so_luong_so; //Xác của tin
+                $chi_tiet_tin->xac = $chi_tiet_tin->diem * 36 * $so_luong_so * 1000; //Xác của tin
                 if ($chi_tiet_tin->dai === 'mb')
-                    $chi_tiet_tin->xac = $chi_tiet_tin->diem * 54 * $so_luong_so; //Xác của tin
-                $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co * 10; //Tiền
-                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co * 10; //Thực thu
+                    $chi_tiet_tin->xac = $chi_tiet_tin->diem * 54 * $so_luong_so * 1000; //Xác của tin
+                $chi_tiet_tin->tien = $chi_tiet_tin->xac * ($co / 100); //Tiền
+                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
 
                 if ($da_co_ket_qua) //Cập nhật kết quả
                     $chi_tiet_tin = $ket_qua_dai->Da($chi_tiet_tin, $trung);
@@ -719,9 +719,9 @@ class tin
                 $co = $chi_tiet_cau_hinh->co; //cò
                 $trung = $chi_tiet_cau_hinh->trung;
 
-                $chi_tiet_tin->xac = $chi_tiet_tin->diem * 72 * $so_luong_so; //Xác của tin
-                $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co * 10; //Tiền
-                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co * 10; //Thực thu
+                $chi_tiet_tin->xac = $chi_tiet_tin->diem * 72 * $so_luong_so * 1000; //Xác của tin
+                $chi_tiet_tin->tien = $chi_tiet_tin->xac * ($co / 100); //Tiền
+                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * ($co / 100); //Thực thu
 
                 if ($da_co_ket_qua) //Cập nhật kết quả
                     $chi_tiet_tin = $ket_qua_mien_nam->DaXien($chi_tiet_tin, $trung);
@@ -760,7 +760,6 @@ class tin
 
             $tin->CapNhatTinVaChiTiet($tin, $ds_chi_tiet, 'mb');
             
-
         }
 
         return $result;
