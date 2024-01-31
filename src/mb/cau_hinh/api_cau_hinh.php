@@ -97,7 +97,7 @@ if ($_POST["action"] === "cap_nhat_config_price") {
 
     $id_update = $_POST['id_update'];
     
-    // $updateData = json_decode($updateData);
+    $updateData = json_decode($updateData);
     
 
         // Construct the SQL update query
