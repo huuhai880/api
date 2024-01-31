@@ -21,12 +21,12 @@
 			$password = $_POST['mat_khau'];
 			$is_web = $_POST['is_web'];
 
-			$sql = "SELECT ten_tai_khoan, loai_tai_khoan, trang_thai, total_money FROM tai_khoan 
+			$sql = "SELECT ten_tai_khoan, loai_tai_khoan, trang_thai, total_money, tai_khoan_quan_ly  FROM tai_khoan 
 			WHERE ten_tai_khoan = '$username' AND mat_khau = '$password'";
 
 		}else{
 
-			$sql = "SELECT ten_tai_khoan, loai_tai_khoan, trang_thai, total_money FROM tai_khoan 
+			$sql = "SELECT ten_tai_khoan, loai_tai_khoan, trang_thai, total_money, tai_khoan_quan_ly FROM tai_khoan 
 			WHERE ten_tai_khoan = '$username'";
 
 		}
