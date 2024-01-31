@@ -121,8 +121,6 @@ if ($_POST["action"] === "cap_nhat_config_price") {
 
     $sql .= "END  WHERE id IN ($id_update)";
 
-    var_dump($sql);
-   
     // Execute the update query
     if ($sql_connector->get_query_result($sql)) {
         $response['success'] = 1;
