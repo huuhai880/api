@@ -330,7 +330,7 @@ class tin
                 $co = $chi_tiet_cau_hinh->co; //cò
                 $trung = $chi_tiet_cau_hinh->trung; //trúng
                 $chi_tiet_tin->tien = $chi_tiet_tin->xac * $co; //Tiền
-                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co; //Thực thu
+                $chi_tiet_tin->thuc_thu = $chi_tiet_tin->xac * $co / 10; //Thực thu
 
                 //Cập nhật trúng trật
                 if ($con == 2) {
