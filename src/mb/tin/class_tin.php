@@ -325,7 +325,7 @@ class tin
                 $con = strlen($so_arr[0]); //con, số ký tự số, 2 con, 3 con, sử dụng để lấy cấu hình và lưu thống kê
                 $so_lo = $so_lo_mien_bac[$con]; //Tính số lô dựa vào con (số ký tự)
 
-                $chi_tiet_tin->xac += $so_lo * $chi_tiet_tin->diem * $so_luong_so; //Xác = số_lô * điểm * số lượng số. số lô miền nam là 18,17,16, mb 27 23 20 
+                $chi_tiet_tin->xac += $so_lo * $chi_tiet_tin->diem * $so_luong_so * 100; //Xác = số_lô * điểm * số lượng số. số lô miền nam là 18,17,16, mb 27 23 20 
                 $chi_tiet_cau_hinh = $cau_hinh->lay_chi_tiet_bao_lo($vung_mien, $con); //Lấy chi tiết cấu hình theo số con
                 $co = $chi_tiet_cau_hinh->co; //cò
                 $trung = $chi_tiet_cau_hinh->trung; //trúng
