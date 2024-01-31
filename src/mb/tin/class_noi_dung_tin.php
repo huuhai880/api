@@ -697,19 +697,7 @@ class NoiDungTin
     public function KiemTraSoCuaKieu($ten_tai_khoan)
     {
 
-        $sql_connector = new sql_connector();
-        # lấy danh sách số chặn
-        $sql_lay_limit_number = "SELECT * FROM `limit_number` WHERE `tai_khoan_tao` = '$ten_tai_khoan' AND `vung_mien` ='mb' AND `dai_limit` IS NULL AND `number_limit` IS NOT NULL";      
-
         
-        $lst_number_limit =[];
-
-        if ($limit_number = $sql_connector->get_query_result($sql_lay_limit_number)) {
-            while ($row = $limit_number->fetch_assoc()) {
-
-                $lst_number_limit[] = $row['number_limit'];
-            }
-        }
 
 
         $dsKieu = new DanhSachKieu();
@@ -730,14 +718,6 @@ class NoiDungTin
                     $html_tin .= $this->noi_dung_arr[$i] . ' ';
                 }
                 
-                $check_so_chan = $this->KiemTraSoChan($i, $start, $end, $lst_number_limit);
-            
-                if(empty($check_so_chan) == false){
-                    return $check_so_chan;
-                }
-                
-                
-
                 $vietTatKieu = $dsKieu->LayVietTatTheoCode($item);
                 $ket_qua = '';
                 switch ($vietTatKieu) { //Goi ham kiem tra so theo kieu

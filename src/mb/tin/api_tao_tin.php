@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $ket_qua_kiem_tra = '';
     if (!isset($_POST["smsid"])) {
-        $ket_qua_kiem_tra = $noi_dung_tin->KiemTraNoiDung($_POST["tai_khoan_danh"]);
+        $ket_qua_kiem_tra = $noi_dung_tin->KiemTraNoiDung($_POST["account_create"]);
     }
 
     if ($ket_qua_kiem_tra){

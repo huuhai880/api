@@ -243,7 +243,7 @@ class tin
         $result = array();
         
         //Lấy cấu hình
-        $cau_hinh = cau_hinh::LayCauHinh($tin->tai_khoan_danh);
+        $cau_hinh = cau_hinh::LayCauHinh($tin->tai_khoan_tao);
         
     
         $html_chi_tiet = '<style>table {width: 100%;} th,td {text-align: right;} td {vertical-align: top;} th:nth-child(1),td:nth-child(1) {text-align: left;}</style>
@@ -514,7 +514,7 @@ class tin
         $da_co_ket_qua = true;
 
         //Lấy cấu hình
-        $cau_hinh = cau_hinh::LayCauHinh($tin->tai_khoan_danh);
+        $cau_hinh = cau_hinh::LayCauHinh($tin->tai_khoan_tao);
         
           
         $ket_qua_mien_bac = ket_qua_ngay::LayKetQuaMienBac();
