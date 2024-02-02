@@ -103,4 +103,43 @@ if ($_POST["action"] === "lay_kq") {
     echo json_encode($response);
 }
 
+if ($_POST["action"] === "lay_kq_of_message") {
+
+
+    $sql_connector = new sql_connector();
+
+    if(!$sql_connector->conn){ //Nếu có lỗi kết nối csdl
+        $response['log'] .= "Loi ket noi csdl; ";
+        $response['error'] = $sql_connector->get_connect_error();
+        $response['success'] = 0;
+        echo json_encode($response);
+        exit();
+    }
+
+    $message_id = $_POST["message_id"]
+
+    $sql_lay_ket_qua = "SELECT `ket_qua` FROM `ket_qua_trung` WHERE `ma_tin`=$message_id ORDER BY `id` DESC LIMIT 1;";
+
+    $ket_qua_trung = [];
+
+    if ($limit_number = $sql_connector->get_query_result($sql_lay_ket_qua)) {
+
+        while ($row = $limit_number->fetch_assoc()) {
+            
+            $ket_qua_trung= $row;
+            
+        }
+
+        
+    }
+    else{
+
+        $response['success'] = 0;
+    }
+
+    $response['ket_qua_trung'] = $ket_qua_trung;
+
+    echo json_encode($response);
+}
+
 ?>
