@@ -116,7 +116,7 @@ if ($_POST["action"] === "lay_kq_of_message") {
         exit();
     }
 
-    $message_id = $_POST["message_id"]
+    $message_id = $_POST["message_id"];
 
     $sql_lay_ket_qua = "SELECT `ket_qua` FROM `ket_qua_trung` WHERE `ma_tin`=$message_id ORDER BY `id` DESC LIMIT 1;";
 
