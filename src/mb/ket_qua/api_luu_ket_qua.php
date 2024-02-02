@@ -118,7 +118,7 @@ if ($_POST["action"] === "lay_kq_of_message") {
 
     $message_id = $_POST["message_id"];
 
-    $sql_lay_ket_qua = "SELECT `ket_qua` FROM `ket_qua_trung` WHERE `ma_tin`=$message_id ORDER BY `id` DESC LIMIT 1;";
+    $sql_lay_ket_qua = "SELECT `ket_qua` FROM `ket_qua_trung` WHERE `ma_tin`='$message_id' ORDER BY `id` DESC LIMIT 1;";
 
     $ket_qua_trung = [];
 
@@ -138,6 +138,8 @@ if ($_POST["action"] === "lay_kq_of_message") {
     }
 
     $response['ket_qua_trung'] = $ket_qua_trung;
+
+    $response['sql'] = $sql_lay_ket_qua;
 
     echo json_encode($response);
 }
