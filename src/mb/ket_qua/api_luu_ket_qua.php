@@ -139,8 +139,6 @@ if ($_POST["action"] === "lay_kq_of_message") {
 
     $response['ket_qua_trung'] = $ket_qua_trung;
 
-    $response['sql'] = $sql_lay_ket_qua;
-
     echo json_encode($response);
 }
 
