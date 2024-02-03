@@ -14,17 +14,8 @@
 
 		$type_price = $_POST['type_price'];
 
-		$sql = "UPDATE tai_khoan 
-		
-		SET total_money = total_money - $total_money 
-		WHERE ten_tai_khoan = '$ten_tai_khoan'";
+		$sql = "INSERT INTO `dp_app`.`payment_history` (`type_price`, `money`, `tai_khoan_tao`) VALUES ('$type_price', $total_money, '$ten_tai_khoan')";
 
-		if($type_price =='up'){
-			$sql = "UPDATE tai_khoan 
-		
-			SET total_money = total_money + $total_money 
-			WHERE ten_tai_khoan = '$ten_tai_khoan'";
-		}
         //Kiểm tra tài khoản đã tồn tại 
 		
 		$sql_connector = new sql_connector();
