@@ -27,7 +27,7 @@
 		}else{
 
 			$sql = "SELECT ten_tai_khoan, loai_tai_khoan, trang_thai, total_money, tai_khoan_quan_ly FROM tai_khoan 
-			WHERE ten_tai_khoan = '$username'";
+			WHERE ten_tai_khoan = '$username' AND trang_thai = 1";
 
 		}
 
