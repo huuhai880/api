@@ -10,11 +10,7 @@
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		$ten_tai_khoan = $_POST['ten_tai_khoan'];
 		
-		$total_money = $_POST['total_money'];
-
-		$type_price = $_POST['type_price'];
-
-		$sql = "INSERT INTO `payment_history` (`type_price`, `money`, `tai_khoan_tao`) VALUES ('$type_price', $total_money, '$ten_tai_khoan')";
+		$sql = "SELECT `id`,`type_price`,`money`,`tai_khoan_tao` FROM `payment_history`  WHERE ten_tai_khoan = '$ten_tai_khoan' LIMIT 0,1000";
 
         //Kiểm tra tài khoản đã tồn tại 
 		
