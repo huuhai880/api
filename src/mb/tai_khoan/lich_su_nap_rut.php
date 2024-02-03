@@ -13,7 +13,7 @@
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		$ten_tai_khoan = $_POST['ten_tai_khoan'];
 		
-		$sql = "SELECT `id`,`type_price`,`money`,`tai_khoan_tao` FROM `payment_history`  WHERE tai_khoan_tao = '$ten_tai_khoan' LIMIT 0,1000";
+		$sql = "SELECT `id`,`type_price`,`money`,`tai_khoan_tao`, `date_create` FROM `payment_history`  WHERE tai_khoan_tao = '$ten_tai_khoan' LIMIT 0,1000";
 
         //Kiểm tra tài khoản đã tồn tại 
 		
