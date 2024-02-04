@@ -46,9 +46,9 @@
 
 				if($_POST['action'] =='login'){
 
-					$sql_update="UPDATE `tai_khoan` SET `is_login` = 1 WHERE `ten_tai_khoan` = '$username'"
+					$sql_update="UPDATE `tai_khoan` SET `is_login` = 1 WHERE `ten_tai_khoan` = '$username'";
 
-					$sql_connector->get_query_result($sql_update)
+					$sql_connector->get_query_result($sql_update);
 
 
 				}
