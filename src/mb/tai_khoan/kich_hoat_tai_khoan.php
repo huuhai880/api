@@ -21,12 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 //Lấy các giá trị từ post
 $ten_tai_khoan = $_POST['ten_tai_khoan'];
 $loai_tai_khoan = $_POST["loai_tai_khoan"];
+$trang_thai = $_POST["trang_thai"];
 //Tạo câu lệnh truy vấn
-$sql = "DELETE FROM tai_khoan WHERE ten_tai_khoan = '$ten_tai_khoan' OR tai_khoan_quan_ly = '$ten_tai_khoan'";
+$sql = "UPDATE tai_khoan SET trang_thai = '$trang_thai' WHERE ten_tai_khoan = '$ten_tai_khoan' OR tai_khoan_quan_ly = '$ten_tai_khoan'";
 $sql_connector = new sql_connector();
 if ($result = $sql_connector->get_query_result($sql)) 
 { //Xoá tài khoản
-   
+    
     $response["success"] = 1; //Thành công
 }
 else
