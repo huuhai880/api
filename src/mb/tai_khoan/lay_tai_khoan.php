@@ -23,7 +23,7 @@
         // $sql = "SELECT ten_tai_khoan, loai_tai_khoan, ten_hien_thi, total_money, trang_thai
         //         FROM tai_khoan WHERE tai_khoan_quan_ly = '$ten_tai_khoan' AND ten_tai_khoan != '$ten_tai_khoan' ";
 
-    $sql = "Call getListAccountRef('$ten_tai_khoan')";
+    $sql = "CALL getListAccountRef('$ten_tai_khoan')";
     //echo $sql;
     //$sql_connector = new sql_connector();
     $sql_connector = new sql_connector();
@@ -38,6 +38,7 @@
     }
     else
         $response["success"] = 0; //Không đọc được dữ liệu
+        $response["error"] = $sql_connector->get_connect_error();
 	
 	echo json_encode($response);
 ?>
