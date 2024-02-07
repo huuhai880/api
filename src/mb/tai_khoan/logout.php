@@ -12,6 +12,7 @@
 	/** Array for JSON response*/
 	$response = array();
 	if($_SERVER['REQUEST_METHOD']=='POST'){
+		
 		$username = $_POST['ten_tai_khoan'];
 		
 		
