@@ -162,7 +162,58 @@ if ($_POST["action"] === "cap_nhat_thu_tu_dai") {
 }
 
 
+if ($_POST["action"] === "config_price_rieng") {
+    $response['log'] .= "action = cap nhat chi tiet;";
+    if (!isset($_POST["ten_tai_khoan"]) || !isset($_POST["list_config"]) || !isset($_POST["id_update"])) {
+        //Nếu chưa có thông tin thì thoát
+        $response['log'] .= "không rõ chi tiết gửi xuống";
+        $response['success'] = 0;
+        echo json_encode($response);
+        exit();
+    }
 
+    $sql_connector = new sql_connector();
+
+    $ten_tai_khoan = $_POST['ten_tai_khoan'];
+
+    $updateData =  $_POST['list_config'];
+
+    $id_update = $_POST['id_update'];
+    
+    $updateData = json_decode($updateData);
+    
+
+        // Construct the SQL update query
+    $sql = "UPDATE chi_tiet_cau_hinh SET co = CASE id ";
+
+    // Add CASE statements for each item in the list
+    foreach ($updateData as $item) {
+        $id = $item->id;
+        $co = $item->co;
+        $sql .= "WHEN $id THEN '$co' ";
+    }
+
+    // Close the CASE statement and specify the WHERE condition
+    $sql .= "END,  trung = CASE id ";
+
+    foreach ($updateData as $item) {
+        $id = $item->id;
+        $trung = $item->trung;
+        $sql .= "WHEN $id THEN '$trung' ";
+    }
+
+    $sql .= "END  WHERE id IN ($id_update)";
+
+    // Execute the update query
+    if ($sql_connector->get_query_result($sql)) {
+        $response['success'] = 1;
+    } else {
+        $response['success'] = 0;
+    }
+
+
+
+}
 
 
 echo json_encode($response);
