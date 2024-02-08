@@ -92,6 +92,7 @@ if ($_POST["action"] === "cap_nhat_chi_tiet") {
 
 
 if ($_POST["action"] === "cap_nhat_config_price") {
+
     $response['log'] .= "action = cap nhat chi tiet;";
     if (!isset($_POST["ten_tai_khoan"]) || !isset($_POST["list_config"]) || !isset($_POST["id_update"])) {
         //Nếu chưa có thông tin thì thoát
@@ -112,121 +113,90 @@ if ($_POST["action"] === "cap_nhat_config_price") {
     $updateData = json_decode($updateData);
     
 
-        // Construct the SQL update query
-    $sql = "UPDATE chi_tiet_cau_hinh SET co = CASE id ";
+    # kiểm tra xem có tài khoản ref không nếu có thì update nếu không thì thêm mới
 
-    // Add CASE statements for each item in the list
-    foreach ($updateData as $item) {
-        $id = $item->id;
-        $co = $item->co;
-        $sql .= "WHEN $id THEN '$co' ";
-    }
-
-    // Close the CASE statement and specify the WHERE condition
-    $sql .= "END,  trung = CASE id ";
-
-    foreach ($updateData as $item) {
-        $id = $item->id;
-        $trung = $item->trung;
-        $sql .= "WHEN $id THEN '$trung' ";
-    }
-
-    $sql .= "END  WHERE id IN ($id_update)";
-
-    // Execute the update query
-    if ($sql_connector->get_query_result($sql)) {
-        $response['success'] = 1;
-    } else {
-        $response['success'] = 0;
-    }
+    $sql_check_exists = "SELECT COUNT(*) AS countRef
+    FROM chi_tiet_cau_hinh_ref AS ref_count WHERE tai_khoan_tao = '$ten_tai_khoan'";
 
 
+    $isExists = 0;
 
-}
-
-
-
-//-------------------------Nếu là Cập Nhật chi tiết Thứ tự đài  ---------------------------------
-if ($_POST["action"] === "cap_nhat_thu_tu_dai") {
-    $response['log'] .= "action = cap nhat chi tiet;";
-    if (!isset($_POST["id"]) || !isset($_POST["ds_ten_cac_dai"])) {
-        //Nếu chưa có thông tin thì thoát
-        $response['log'] .= "không rõ chi tiết gửi xuống";
-        $response['success'] = 0;
-        echo json_encode($response);
-        exit();
-    }
-
-    $id = $_POST['id'];
-    $ds_ten_cac_dai = $_POST["ds_ten_cac_dai"];
-
-    $thu_tu_dai = new thu_tu_dai();
-    $thu_tu_dai->id = $id;
-    $thu_tu_dai->ten_dai_theo_thu_tu = $ds_ten_cac_dai;
-
-    if($thu_tu_dai->cap_nhat_xuong_db())
-        $response['success'] = 1;
-    else
-        $response['success'] = 0;
-    //Xuất ra
-    $response['thu_tu_dai'] = json_encode($thu_tu_dai);
-
-}
-
-
-if ($_POST["action"] === "config_price_rieng") {
-    $response['log'] .= "action = cap nhat chi tiet;";
-    if (!isset($_POST["ten_tai_khoan"]) || !isset($_POST["list_config"]) || !isset($_POST["id_update"])) {
-        //Nếu chưa có thông tin thì thoát
-        $response['log'] .= "không rõ chi tiết gửi xuống";
-        $response['success'] = 0;
-        echo json_encode($response);
-        exit();
-    }
-
-    $sql_connector = new sql_connector();
-
-    $ten_tai_khoan = $_POST['ten_tai_khoan'];
-
-    $updateData =  $_POST['list_config'];
-
-    $id_update = $_POST['id_update'];
+    if ($result = $sql_connector->get_query_result($sql_check_exists)) {
+        while ($row = $result -> fetch_assoc()) {
+            $isExists = $row['countRef'];
+                
+        }
+        
+    }   
     
-    $updateData = json_decode($updateData);
-    
-
+    if($isExists >= 1){
+        
         // Construct the SQL update query
-    $sql = "UPDATE chi_tiet_cau_hinh SET co = CASE id ";
+        $sql = "UPDATE chi_tiet_cau_hinh_ref SET co = CASE id ";
 
-    // Add CASE statements for each item in the list
-    foreach ($updateData as $item) {
-        $id = $item->id;
-        $co = $item->co;
-        $sql .= "WHEN $id THEN '$co' ";
+        // Add CASE statements for each item in the list
+        foreach ($updateData as $item) {
+            $id = $item->id;
+            $co = $item->co;
+            $sql .= "WHEN $id THEN '$co' ";
+        }
+
+        // Close the CASE statement and specify the WHERE condition
+        $sql .= "END,  trung = CASE id ";
+
+        foreach ($updateData as $item) {
+            $id = $item->id;
+            $trung = $item->trung;
+            $sql .= "WHEN $id THEN '$trung' ";
+        }
+
+        $sql .= "END  WHERE id IN ($id_update)";
+
+        // Execute the update query
+        if ($sql_connector->get_query_result($sql)) {
+            $response['success'] = 1;
+        } else {
+            $response['success'] = 0;
+        }
+
+
     }
+    else{
 
-    // Close the CASE statement and specify the WHERE condition
-    $sql .= "END,  trung = CASE id ";
 
-    foreach ($updateData as $item) {
-        $id = $item->id;
-        $trung = $item->trung;
-        $sql .= "WHEN $id THEN '$trung' ";
+        try {
+
+
+            $sql_chi_tiet = "INSERT INTO chi_tiet_cau_hinh_ref (kieu_danh, co, trung, vung_mien, tai_khoan_tao) VALUES ";
+            foreach ($updateData  as $ct) {
+                $sql_chi_tiet .= "('" . $ct->kieu_danh . "'," . $ct->co . "," . $ct->trung . ",'" . $ct->vung_mien . "','". $ten_tai_khoan."'),";
+            }
+
+            
+
+            $sql_chi_tiet = rtrim($sql_chi_tiet, ',');
+
+            var_dump($sql_chi_tiet);
+
+            
+
+            if ($sql_connector->get_query_result($sql_chi_tiet)) {
+                $response['success'] = 1;
+            } else {
+                $response['success'] = 0;
+            }
+            
+        } catch (Exception $e) {
+            // Code to handle the exception
+            echo "An exception occurred: " . $e->getMessage();
+        } 
+
+        
+
+
     }
-
-    $sql .= "END  WHERE id IN ($id_update)";
-
-    // Execute the update query
-    if ($sql_connector->get_query_result($sql)) {
-        $response['success'] = 1;
-    } else {
-        $response['success'] = 0;
-    }
-
-
 
 }
-
 
 echo json_encode($response);
 ?>
