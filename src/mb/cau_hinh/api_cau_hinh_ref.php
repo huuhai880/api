@@ -46,12 +46,6 @@ if ($_POST["action"] === "doc") {
     else{
         $response["success"] = 0;
     }
-
-    var_dump($config_price);
-
-    //Xuất ra
-    $response['ds_chi_tiet_cau_hinh'] = $config_price;
-    
 }
 
 
