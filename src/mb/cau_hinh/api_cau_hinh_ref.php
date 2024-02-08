@@ -176,10 +176,6 @@ if ($_POST["action"] === "cap_nhat_config_price") {
 
             $sql_chi_tiet = rtrim($sql_chi_tiet, ',');
 
-            var_dump($sql_chi_tiet);
-
-            
-
             if ($sql_connector->get_query_result($sql_chi_tiet)) {
                 $response['success'] = 1;
             } else {
