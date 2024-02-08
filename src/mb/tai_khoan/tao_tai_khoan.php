@@ -41,12 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //Kiểm tra phương thức POST
 		$response['sql'] = $sql;
 		if ($result = $sql_connector->get_query_result($sql)) {
 			$response["success"] = 1;
-			if ($loai_tai_khoan != "god") //Nếu là tài khoản quản lý thì cần tạo cấu hình.
-			{
-				$cau_hinh = cau_hinh::LayCauHinh($tai_khoan_quan_ly); //La
-				$cau_hinh->tai_khoan = $ten_tai_khoan; //Cập nhật tên tài khoản mới
-				$cau_hinh->ghi_xuong_db(); //Ghi lại xuống csdl
-			}
+			// if ($loai_tai_khoan != "god") //Nếu là tài khoản quản lý thì cần tạo cấu hình.
+			// {
+			// 	$cau_hinh = cau_hinh::LayCauHinh($tai_khoan_quan_ly); //La
+			// 	$cau_hinh->tai_khoan = $ten_tai_khoan; //Cập nhật tên tài khoản mới
+			// 	$cau_hinh->ghi_xuong_db(); //Ghi lại xuống csdl
+			// }
 		} 
 		else
 			$response["success"] = 0;
