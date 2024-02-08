@@ -52,7 +52,8 @@ class cau_hinh
                 $row = $result->fetch_assoc();
                 $cau_hinh->id = $row["id"];
                 $cau_hinh->tai_khoan = $row["tai_khoan"];
-                $sql_chi_tiet = "SELECT * FROM chi_tiet_cau_hinh WHERE id_cau_hinh = '$cau_hinh->id'";
+                // $sql_chi_tiet = "SELECT * FROM chi_tiet_cau_hinh WHERE id_cau_hinh = '$cau_hinh->id'";
+                $sql_chi_tiet = "CALL getConfigPriceRef('$tai_khoan')";
                 if ($result_chi_tiet = $sql_connector->get_query_result($sql_chi_tiet)) {
                     while ($row = $result_chi_tiet->fetch_assoc()) {
                         $chi_tiet_cau_hinh = new chi_tiet_cau_hinh();
