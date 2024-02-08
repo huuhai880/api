@@ -33,7 +33,7 @@ if ($_POST["action"] === "doc") {
 
     $config_price = array(); 
 
-    $sql ="CALL getConfigPriceRef()";
+    $sql ="CALL getConfigPriceRef('$ten_tai_khoan')";
 
     // Execute the update query
     if ($result = $sql_connector->get_query_result($sql)) {
