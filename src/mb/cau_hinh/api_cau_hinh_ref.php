@@ -49,17 +49,30 @@ if ($_POST["action"] === "doc") {
 }
 
 
-
-//-------------------------Nếu là ghi  ---------------------------------
-if ($_POST["action"] === "ghi") {
-    $response['log'] .= "action=ghi;";
-  
-}
-
-
 //-------------------------Nếu là xoa  ---------------------------------
 if ($_POST["action"] === "xoa") {
     $response['log'] .= "action=xoa;";
+
+    $sql_connector = new sql_connector();
+    
+    if (!isset($_POST["ten_tai_khoan"])) {
+        //Nếu chưa có thông tin thì thoát
+        $response['log'] .= "không rõ chi tiết gửi xuống";
+        $response['success'] = 0;
+        echo json_encode($response);
+        exit();
+    }
+
+    $ten_tai_khoan = $_POST['ten_tai_khoan'];
+
+    $sql = "DELETE FROM chi_tiet_cau_hinh_ref WHERE tai_khoan_tao='$ten_tai_khoan';";
+
+    if ($sql_connector->get_query_result($sql)) {
+        $response['success'] = 1;
+    } else {
+        $response['success'] = 0;
+    }
+
   
 }
 //-------------------------Nếu là Cập Nhật chi tiết kiểu đánh  ---------------------------------
