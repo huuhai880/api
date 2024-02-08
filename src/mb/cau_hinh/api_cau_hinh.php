@@ -27,13 +27,23 @@ if ($_POST["action"] === "doc") {
 
     $ten_tai_khoan = $_POST['ten_tai_khoan'];
     
-    $cau_hinh = cau_hinh::LayCauHinh($ten_tai_khoan);
+    $sql_connector = new sql_connector();
 
-    //Xuất ra
-    $response['cau_hinh'] = json_encode($cau_hinh);
-    $response['ds_chi_tiet_cau_hinh'] = json_encode($cau_hinh->getDsChiTietCauHinh());
-    $response['ds_thu_tu_dai'] = json_encode($cau_hinh->getDsThuTuDai());
-    $response['success'] = 1;
+    $config_price = array(); 
+
+    $sql ="CALL getConfigPrice('$ten_tai_khoan')";
+
+    // Execute the update query
+    if ($result = $sql_connector->get_query_result($sql)) {
+        while ($row = $result -> fetch_assoc()) {
+            $config_price[] = $row;
+        }
+        $response["success"] = 1; //Thành công
+        $response["lich_su"] = $config_price;
+    }      
+    else{
+        $response["success"] = 0;
+    }
 }
 
 
