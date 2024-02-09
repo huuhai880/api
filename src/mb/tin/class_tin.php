@@ -245,9 +245,6 @@ class tin
         //Lấy cấu hình
         $cau_hinh = cau_hinh::LayCauHinh($tin->tai_khoan_danh);
 
-        var_dump($cau_hinh);
-        
-    
         $html_chi_tiet = '<style>table {width: 100%;} th,td {text-align: right;} td {vertical-align: top;} th:nth-child(1),td:nth-child(1) {text-align: left;}</style>
                         <table> 
                         <thead> <tr><th >Đài</th><th >Số</th><th >Kiểu</th><th >Điểm</th><th >Tiền</th></tr> </thead> 
@@ -516,7 +513,7 @@ class tin
         $da_co_ket_qua = true;
 
         //Lấy cấu hình
-        $cau_hinh = cau_hinh::LayCauHinh($tin->tai_khoan_tao);
+        $cau_hinh = cau_hinh::LayCauHinh($tin->tai_khoan_danh);
         
           
         $ket_qua_mien_bac = ket_qua_ngay::LayKetQuaMienBac();
