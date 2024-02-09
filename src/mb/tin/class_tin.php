@@ -243,7 +243,7 @@ class tin
         $result = array();
         
         //Lấy cấu hình
-        $cau_hinh = cau_hinh::LayCauHinh($tin->tai_khoan_tao);
+        $cau_hinh = cau_hinh::LayCauHinh($tin->tai_khoan_danh);
 
         var_dump($cau_hinh);
         
