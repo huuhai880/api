@@ -19,11 +19,13 @@
          exit();
     }
 	$ten_tai_khoan = $_POST['ten_tai_khoan'];
+    $startDate = $_POST['startDate'];
+    $endDate = $_POST['endDate'];
     
         // $sql = "SELECT ten_tai_khoan, loai_tai_khoan, ten_hien_thi, total_money, trang_thai
         //         FROM tai_khoan WHERE tai_khoan_quan_ly = '$ten_tai_khoan' AND ten_tai_khoan != '$ten_tai_khoan' ";
 
-    $sql = "CALL GetAllAccount('$ten_tai_khoan')";
+    $sql = "CALL GetAllAccountReport('$ten_tai_khoan','$startDate'.'$endDate')";
     //echo $sql;
     //$sql_connector = new sql_connector();
     $sql_connector = new sql_connector();
