@@ -30,6 +30,8 @@
     //$sql_connector = new sql_connector();
     $sql_connector = new sql_connector();
 
+    var_dump($result = $sql_connector->get_query_result($sql));
+
     if ($result = $sql_connector->get_query_result($sql)) {
 
         var_dump($result);
