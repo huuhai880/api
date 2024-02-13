@@ -25,12 +25,14 @@
         // $sql = "SELECT ten_tai_khoan, loai_tai_khoan, ten_hien_thi, total_money, trang_thai
         //         FROM tai_khoan WHERE tai_khoan_quan_ly = '$ten_tai_khoan' AND ten_tai_khoan != '$ten_tai_khoan' ";
 
-    $sql = "CALL GetAllAccountReport('$ten_tai_khoan','$startDate'.'$endDate')";
+    $sql = "CALL GetAllAccountReport('$ten_tai_khoan','$startDate','$endDate')";
     //echo $sql;
     //$sql_connector = new sql_connector();
     $sql_connector = new sql_connector();
 
-    var_dump($result = $sql_connector->get_query_result($sql));
+    var_dump($sql);
+
+    var_dump($sql_connector->get_query_result($sql));
 
     if ($result = $sql_connector->get_query_result($sql)) {
 
