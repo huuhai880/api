@@ -30,13 +30,7 @@
     //$sql_connector = new sql_connector();
     $sql_connector = new sql_connector();
 
-    var_dump($sql);
-
-    var_dump($sql_connector->get_query_result($sql));
-
     if ($result = $sql_connector->get_query_result($sql)) {
-
-        var_dump($result);
 
         while ($row = $result -> fetch_assoc()) {
                 $tai_khoan[] = $row;
