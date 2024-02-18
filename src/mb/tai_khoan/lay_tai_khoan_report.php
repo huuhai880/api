@@ -30,14 +30,21 @@
     //$sql_connector = new sql_connector();
     $sql_connector = new sql_connector();
 
+    $total_sum_positive_up = 0;
+    $total_sum_positive_down = 0;
+
     if ($result = $sql_connector->get_query_result($sql)) {
 
         while ($row = $result -> fetch_assoc()) {
                 $tai_khoan[] = $row;
+                $total_sum_positive_up = $row['total_sum_positive_up'];
+                $total_sum_positive_down = $row['total_sum_positive_down'];
                 //echo $row;
         }
         $response["success"] = 1; //Thành công
         $response["danh_sach_tai_khoan"] = $tai_khoan;
+        $response["total_sum_positive_up"] = $tai_khoan;
+        $response["total_sum_positive_down"] = $tai_khoan;
     }
     else
         $response["success"] = 0; //Không đọc được dữ liệu
