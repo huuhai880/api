@@ -21,13 +21,13 @@
 			$password = $_POST['mat_khau'];
 			$is_web = $_POST['is_web'];
 
-			$sql = "SELECT ten_tai_khoan, loai_tai_khoan, trang_thai, total_money, tai_khoan_quan_ly  FROM tai_khoan 
+			$sql = "SELECT ten_tai_khoan, loai_tai_khoan, trang_thai, total_money, tai_khoan_quan_ly, content  FROM tai_khoan 
 			WHERE ten_tai_khoan = '$username' AND mat_khau = '$password' AND trang_thai = 0 AND is_login = 0 ";
 
 
 		}else{
 
-			$sql = "SELECT ten_tai_khoan, loai_tai_khoan, trang_thai, total_money, tai_khoan_quan_ly FROM tai_khoan 
+			$sql = "SELECT ten_tai_khoan, loai_tai_khoan, trang_thai, total_money, tai_khoan_quan_ly, content FROM tai_khoan 
 			WHERE ten_tai_khoan = '$username' AND trang_thai = 0";
 
 		}
@@ -42,6 +42,7 @@
 				$response["trang_thai"] = $row["trang_thai"];
 				$response["total_money"] = $row["total_money"];
 				$response["tai_khoan_quan_ly"] = $row["tai_khoan_quan_ly"];
+				$response["content"] = $row["content"];
 				$response["success"] = 1;
 
 				if($_POST['action'] =='login'){
