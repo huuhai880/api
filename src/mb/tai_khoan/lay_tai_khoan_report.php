@@ -45,7 +45,7 @@
         $response["success"] = 1; //Thành công
         $response["danh_sach_tai_khoan"] = $tai_khoan;
         $response["total_sum_positive_up"] = $total_sum_positive_up;
-        $response["total_sum_positive_down"] = $total_sum_positive_up;
+        $response["total_sum_positive_down"] = $total_sum_positive_down;
     }
     else
         $response["success"] = 0; //Không đọc được dữ liệu
