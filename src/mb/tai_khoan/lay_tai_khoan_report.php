@@ -38,8 +38,8 @@
         while ($row = $result -> fetch_assoc()) {
                 $tai_khoan[] = $row;
 
-                $total_sum_positive_up += $row['total_sum_positive_up'];
-                $total_sum_positive_down += $row['total_sum_positive_down'];
+                $total_sum_positive_up += $row['sum_positive_up'];
+                $total_sum_positive_down += $row['sum_positive_down'];
                 //echo $row;
         }
         $response["success"] = 1; //Thành công
